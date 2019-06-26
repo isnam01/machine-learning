@@ -1,0 +1,21 @@
+#!/usr/bin/python
+import pandas as pd
+import matplotlib.pyplot as plt
+data=pd.read_csv("http://13.234.66.67/summer19/datasets/bank.csv")
+plt.bar(data.RowNumber,data.Age,label='Age of Customer')
+plt.xlabel('Unique_Customer_ID')
+plt.ylabel('Age')
+plt.legend()
+plt.show()
+data.groupby('Gender').size().plot('bar')
+plt.show()
+data.groupby('Geography').size().plot('pie',label='Geography',shadow='true')
+plt.show()
+data.groupby('Age').size().plot('line')
+plt.show()
+pd.crosstab(data['Gender'],data['IsActiveMember']).plot.bar()
+plt.show()
+pd.crosstab(data['Gender'],data['HasCrCard']).plot.bar()
+plt.show()
+data.groupby('Exited').size().plot('bar')
+plt.show()
